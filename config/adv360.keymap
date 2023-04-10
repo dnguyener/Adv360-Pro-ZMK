@@ -6,14 +6,6 @@
 
 / {
 
-    # combos {
-    #     compatible = "zmk,combos";
-    #     combo_esc {
-    #         timeout-ms = <150>;
-    #         key-positions = <43 44>;
-    #         bindings = <&kp ESC>;
-    #     };
-    # };
     behaviors {
       #include "macros.dtsi"
 
