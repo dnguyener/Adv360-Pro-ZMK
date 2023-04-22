@@ -36,7 +36,7 @@
           tapping-term-ms = <400>;                        // <---[[produces tap if held longer than tapping-term-ms]]
           quick-tap-ms = <200>;
           bindings = <&kp>, <&kp>;
-          hold-trigger-key-positions = <0 1 2 3 4 5 15 16 17 18 1929 30 31 32 33 49 50 51 52 53>;
+          hold-trigger-key-positions = <0 1 2 3 4 5 15 16 17 18 19 29 30 31 32 33 49 50 51 52 53>;
       };
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
