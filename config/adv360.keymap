@@ -25,9 +25,19 @@
           tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
           quick-tap-ms = <200>;
           bindings = <&kp>, <&kp>;
-          hold-trigger-key-positions = <8 9 10 11 12 13 22 23 24 25 26 27 42 43 44 45 46 47 62 63 64 65 66 81 82>;    // <---[[right-hand keys]]
+          hold-trigger-key-positions = <8 9 10 11 12 13 22 23 24 25 26 27 42 43 44 45 46 47 62 63 64 65 66 81 82>; 
       };
 
+      rh_pht: right_hand_positional_hold_tap {
+          compatible = "zmk,behavior-hold-tap";
+          label = "RIGHT_POSITIONAL_HOLD_TAP";
+          #binding-cells = <2>;
+          flavor = "tap-unless-interrupted";
+          tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+          quick-tap-ms = <200>;
+          bindings = <&kp>, <&kp>;
+          hold-trigger-key-positions = <0 1 2 3 4 5 15 16 17 18 1929 30 31 32 33 49 50 51 52 53>;
+      };
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
           label = "HOMEROW_MODS";
@@ -46,7 +56,7 @@
       bindings = <
         &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4      &kp N5 &tog 1                                                                         &mo 3     &kp N6   &kp N7      &kp N8    &kp N9   &kp N0   &kp MINUS
         &kp TAB   &kp Q     &kp W    &kp E    &kp R       &kp T  &none                                                                          &kp PG_UP &kp Y    &kp U       &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &lh_pht LSHFT F &kp G  &none           &kp RCTRL &kp RALT &none &none &kp LALT  &kp RCTRL             &kp PG_DN &kp H    &hm RSHFT J &kp K     &kp L    &kp SEMI &kp SQT
+        &kp ESC   &kp A     &kp S    &kp D    &lh_pht LSHFT F &kp G  &none           &kp RCTRL &kp RALT &none &none &kp LALT  &kp RCTRL             &kp PG_DN &kp H    &rh_pht RSHFT J &kp K     &kp L    &kp SEMI &kp SQT
         &sk LSHFT &kp Z     &kp X    &kp C    &kp V       &kp B         &none    &none     &kp HOME &none &none &kp LGUI  &none     &none                 &kp N    &kp M       &kp COMMA &kp DOT  &kp FSLH &sk RSHFT
         &mo 2     &kp GRAVE &none    &kp LEFT &kp RIGHT                 &kp BSPC &kp TAB   &kp LC(B)            &mt RC(LGUI) RC(B) &kp ENTER &kp SPACE             &kp DOWN &kp UP      &kp LBKT  &kp RBKT &mo 2
       >;
