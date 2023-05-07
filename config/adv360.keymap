@@ -9,15 +9,6 @@
 
     behaviors {
       #include "macros.dtsi"
-      combos {
-        compatible = "zmk,combos";
-          combo_esc {
-            timeout-ms = <175>;
-            key-positions = <43 44>;
-            bindings = <&kp ESC>;
-          };
-      };
-
       lh_pht: left_hand_positional_hold_tap {
           compatible = "zmk,behavior-hold-tap";
           label = "LEFT_POSITIONAL_HOLD_TAP";
