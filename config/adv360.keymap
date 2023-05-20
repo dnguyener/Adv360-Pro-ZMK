@@ -19,7 +19,14 @@
           bindings = <&kp>, <&kp>;
           hold-trigger-key-positions = <8 9 10 11 12 13 22 23 24 25 26 27 42 43 44 45 46 47 62 63 64 65 66 81 82>; 
       };
-
+      combos {
+        compatible = "zmk,combos";
+          combo_esc {
+            timeout-ms = <150>;
+            key-positions = <43 44>;
+            bindings = <&kp ESC>;
+          };
+      };
       rh_pht: right_hand_positional_hold_tap {
           compatible = "zmk,behavior-hold-tap";
           label = "RIGHT_POSITIONAL_HOLD_TAP";
