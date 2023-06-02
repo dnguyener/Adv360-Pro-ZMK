@@ -11,13 +11,13 @@
       #include "macros.dtsi"
       lh_pht: left_hand_positional_hold_tap {
           compatible = "zmk,behavior-hold-tap";
-          label = "LEFT_POSITIONAL_HOLD_TAP";
+          label = "LEFT_POSITIONAL_QUICK_TAP";
           #binding-cells = <2>;
-          flavor = "hold-preferred";
-          tapping-term-ms = <400>;                        // <---[[produces tap if held longer than tapping-term-ms]]
-          quick-tap-ms = <200>;
+          flavor = "tap-preferred";
+          tapping-term-ms = <150>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+          quick-tap-ms = <150>;
           bindings = <&kp>, <&kp>;
-          hold-trigger-key-positions = <8 9 10 11 12 13 22 23 24 25 26 27 42 43 44 45 46 47 62 63 64 65 66 81 82>; 
+          hold-trigger-key-positions = <8 9 10 11 12 13 22 23 24 25 26 27 42 43 44 45 46 47 62 63 64 65 66 81 82>;
       };
       combos {
         compatible = "zmk,combos";
@@ -29,11 +29,11 @@
       };
       rh_pht: right_hand_positional_hold_tap {
           compatible = "zmk,behavior-hold-tap";
-          label = "RIGHT_POSITIONAL_HOLD_TAP";
+          label = "RIGHT_POSITIONAL_QUICK_TAP";
           #binding-cells = <2>;
-          flavor = "hold-preferred";
-          tapping-term-ms = <400>;                        // <---[[produces tap if held longer than tapping-term-ms]]
-          quick-tap-ms = <200>;
+          flavor = "tap-preferred";
+          tapping-term-ms = <150>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+          quick-tap-ms = <150>;
           bindings = <&kp>, <&kp>;
           hold-trigger-key-positions = <0 1 2 3 4 5 15 16 17 18 19 29 30 31 32 33 49 50 51 52 53>;
       };
@@ -47,7 +47,7 @@
           bindings = <&kp>, <&kp>;
       };
     };
-    
+
   keymap {
     compatible = "zmk,keymap";
 
