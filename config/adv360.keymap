@@ -14,7 +14,7 @@
 
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
-/ {
+{
 
     behaviors {
       #include "macros.dtsi"
