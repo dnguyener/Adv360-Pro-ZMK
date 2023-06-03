@@ -79,7 +79,6 @@
             hold-trigger-on-release;             // requires PR #1423
         };
     };
-    =
     keymap {
         compatible = "zmk,keymap";
 
