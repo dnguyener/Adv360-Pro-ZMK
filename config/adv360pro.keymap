@@ -26,3 +26,8 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
 
+\ {
+    chosen {
+        zmk,matrix_transform = &urobs_transform;
+    };
+};
