@@ -24,6 +24,7 @@
 #define FN 3
 #define MOD 4
 #define MS 5
+#define HYPER 6
 
 #define KEYS_L LN5 LN4 LN3 LN2 LN1 LN0 LT5 LT4 LT3 LT2 LT1 LT0 LM5 LM4 LM3 LM2 LM1 LM0 LB5 LB4 LB3 LB2 LB1 LB0
 #define KEYS_R RN0 RN1 RN2 RN3 RN4 RN5 RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5
@@ -78,6 +79,7 @@
             hold-trigger-on-release;             // requires PR #1423
         };
     };
+    =
     keymap {
         compatible = "zmk,keymap";
 
@@ -88,9 +90,9 @@
                 &kp ESC   &kp A     &hm_l LALT S &hm_l LGUI D &hm_l LCTRL F &kp G     &to COLEMAK    &none   &kp H     &hm_r RCTRL J &hm_r RGUI K &hm_r RALT L &kp SEMI  &kp SQT
                 &kp LSHFT &kp Z     &kp X        &kp C        &kp V         &kp B                                                    &kp N        &kp M        &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
                 &mo FN    &kp GRAVE &kp CAPS     &kp LEFT     &kp RIGHT                                                              &kp DOWN     &kp UP       &kp LBKT  &kp RBKT  &mo FN
-                                                                  &kp LCTRL &kp LALT       &kp LGUI  &kp RCTRL
-                                                        &kp BSPC  &kp TAB   &kp HOME       &kp PG_UP &kp ENTER &kp SPACE
-                                                                            &kp END        &kp PG_DN
+                                                                  &sl HYPER &kp LALT  &kp LGUI  &sl HYPER
+                                                        &kp BSPC  &kp TAB   &kp HOME  &kp PG_UP &kp ENTER &kp SPACE
+                                                                            &kp END   &kp PG_DN
             >;
         };
 
@@ -159,6 +161,18 @@
             >;
         };
 
+        hyper {
+            bindings = <
+                ___       ___                  ___                   ___                    ___          ___       ___            ___       ___       ___       ___       ___       ___       ___
+                ___       ___                  ___                   ___                    ___          ___       ___            ___       ___       ___       ___       ___       ___       ___
+                ___       $kp LCTRL(LALT(TAB)) &kp LGUI(LCTRL(LEFT)) &kp LGUI(LCTRL(RIGHT)) ___          ___       ___            ___       ___       ___       ___       ___       ___       ___
+                ___       ___                  ___                   ___                    ___          ___                                ___       ___       ___       ___       ___       ___
+                ___       ___                  ___                   ___                    ___                                                       ___       ___       ___       ___       ___
+                                                                  ___       ___            ___       ___
+                                                        ___       ___       ___            ___       ___       ___
+                                                                            ___            ___
+            >;
+        };
     };
 
 };
