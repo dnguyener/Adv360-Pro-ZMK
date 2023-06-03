@@ -14,9 +14,10 @@
 
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
-{
+/ {
 
     behaviors {
+/*
       #include "macros.dtsi"
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
@@ -78,7 +79,7 @@
             // hold-trigger-on-release;             // requires PR #1423
         };
     };
-
+*/
   keymap {
     compatible = "zmk,keymap";
 
