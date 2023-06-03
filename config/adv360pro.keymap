@@ -58,7 +58,7 @@
             #binding-cells = <2>;
             bindings = <&kp>,  <&kp>;
 
-            flavor = "balanced";
+            flavor = "hold-referred";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <175>;                // repeat on tap-into-hold
             global-quick-tap-ms = <75>;         // requires PR #1387
@@ -71,7 +71,7 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
-            flavor = "balanced";
+            flavor = "hold-referred";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick_tap_ms = <175>;
             global-quick-tap-ms = <75>;         // requires PR #1387
