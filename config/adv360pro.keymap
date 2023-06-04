@@ -98,7 +98,7 @@
                 &kp LSHFT &kp Z     &kp X        &kp C        &kp V         &kp B                                                    &kp N        &kp M        &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
                 &mo FN    &kp GRAVE &kp CAPS     &kp LEFT     &kp RIGHT                                                              &kp DOWN     &kp UP       &kp LBKT  &kp RBKT  &mo FN
                                                                   &sl HYPER &kp LALT  &kp LGUI  &sl HYPER
-                                                        &kp BSPC  &kp TAB   &kp HOME  &kp PG_UP &kp ENTER &kp SPACE
+                                                        &lt KEYPAD BSPC  &kp TAB   &kp HOME  &kp PG_UP &kp ENTER &kp SPACE
                                                                             &kp END   &kp PG_DN
             >;
         };
@@ -122,7 +122,7 @@
                 ___       ___       ___       ___       ___       ___       ___            ___       ___       &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    ___
                 ___       ___       ___       ___       ___       ___       ___            ___       ___       &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     ___
                 ___       ___       ___       ___       ___       ___                                ___       &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    ___
-                ___       ___       ___       ___       ___                                                    &kp KP_N0  ___          &kp KP_DOT    ___             ___
+                ___       ___       ___       ___       ___                                                    &kp N0      ___          &kp KP_DOT    ___             ___
                                                                   ___       ___            ___       ___
                                                         ___       ___       ___            ___       ___       ___
                                                                             ___            ___
