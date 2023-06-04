@@ -79,6 +79,14 @@
             hold-trigger-on-release;             // requires PR #1423
         };
     };
+    macros {
+        zellij_fullscreen: zellij_fullscreen {
+            label = "zellij_fullscreen";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESC>, <&kp LC(P)>, <&kp F>;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
@@ -162,11 +170,11 @@
 
         hyper {
             bindings = <
-                ___    ___      ___     ___                  ___               ___       ___        ___       ___       ___       ___       ___       ___       ___
-                ___    ___      ___     ___                  ___               ___       ___        ___       ___       ___       ___       ___       ___       ___
-                ___    ___      ___     ___                  ___               ___       ___        ___       &kp LA(H) &kp LA(J) &kp LA(K) &kp LA(L) ___       ___
-                ___    ___      ___     &kp LC(LS(C))        &kp LC(LS(V))     ___                            ___       ___       ___       ___       ___       ___
-                ___    ___      ___     &kp LG(LC(LEFT))     &kp LG(LC(RIGHT))                                          ___       ___       ___       ___       ___
+                ___    ___      ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
+                ___    ___      ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
+                ___    ___      ___     ___                  &zellij_fullscreen ___       ___        ___       &kp LA(H) &kp LA(J) &kp LA(K) &kp LA(L) ___       ___
+                ___    ___      ___     &kp LC(LS(C))        &kp LC(LS(V))      ___                            ___       ___       ___       ___       ___       ___
+                ___    ___      ___     &kp LG(LC(LEFT))     &kp LG(LC(RIGHT))                                           ___       ___       ___       ___       ___
                                                                   ___             ___            ___       ___
                                                         ___       &kp LC(LA(TAB)) ___            ___       ___       ___
                                                                                   ___            ___
