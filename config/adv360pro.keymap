@@ -118,42 +118,6 @@
             #binding-cells = <0>;
             bindings = <&kp LC(LSHFT)>, <&kp Z>;
         };
-        term_vsplit: term_vsplit {
-            label = "term_vsplit";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LS(LALT))>, <&kp DQT>;
-        };
-        term_split: term_split {
-            label = "term_split";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LS(LALT))>, <&kp PRCNT>;
-        };
-        term_left: term_left {
-            label = "term_left";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LSHFT)>, <&kp LEFT>;
-        };
-        term_down: term_down {
-            label = "term_down";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LSHFT)>, <&kp DOWN>;
-        };
-        term_up: term_up {
-            label = "term_up";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LSHFT)>, <&kp UP>;
-        };
-        term_right: term_right {
-            label = "term_right";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LSHFT)>, <&kp RIGHT>;
-        };
     };
     keymap {
         compatible = "zmk,keymap";
