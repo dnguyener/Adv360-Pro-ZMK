@@ -116,7 +116,7 @@
             label = "term_fscreen";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LS)>, <&kp Z>;
+            bindings = <&kp LC(LSHFT)>, <&kp Z>;
         };
         term_vsplit: term_vsplit {
             label = "term_vsplit";
@@ -134,25 +134,25 @@
             label = "term_left";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LS)>, <&kp LEFT>;
+            bindings = <&kp LC(LSHFT)>, <&kp LEFT>;
         };
         term_down: term_down {
             label = "term_down";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LS)>, <&kp DOWN>;
+            bindings = <&kp LC(LSHFT)>, <&kp DOWN>;
         };
         term_up: term_up {
             label = "term_up";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LS)>, <&kp UP>;
+            bindings = <&kp LC(LSHFT)>, <&kp UP>;
         };
         term_down: term_down {
             label = "term_down";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LS)>, <&kp DON>;
+            bindings = <&kp LC(LSHFT)>, <&kp DON>;
         };
     };
     keymap {
