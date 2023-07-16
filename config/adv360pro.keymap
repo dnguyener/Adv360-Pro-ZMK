@@ -148,11 +148,11 @@
             #binding-cells = <0>;
             bindings = <&kp LC(LSHFT)>, <&kp UP>;
         };
-        term_down: term_down {
-            label = "term_down";
+        term_right: term_right {
+            label = "term_right";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LSHFT)>, <&kp DON>;
+            bindings = <&kp LC(LSHFT)>, <&kp RIGHT>;
         };
     };
     keymap {
