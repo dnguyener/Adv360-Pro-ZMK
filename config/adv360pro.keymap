@@ -240,8 +240,8 @@
             bindings = <
                 ___    ___                  ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
                 ___    ___                  ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
-                ___    ___                  &term_split     &term_vsplit                  ___                ___       ___        ___       &term_left &term_down &term_up &term_right ___       ___
-                ___    &term_fscreen   ___     &kp LC(LS(C))        &kp LC(LS(V))      ___                            ___       ___       ___       ___       ___       ___
+                ___    ___                  &LC(LS(LA(PRCNT)))     &LC(LS(LA(DQT)))                  ___                ___       ___        ___       &LC(LS(LEFT)) &LC(LS(DOWN)) &LC(LS(UP)) &LC(LS(RIGHT)) ___       ___
+                ___    &LC(LS(Z))   ___     &kp LC(LS(C))        &kp LC(LS(V))      ___                            ___       ___       ___       ___       ___       ___
                 ___    ___                  ___     &kp LG(LC(LEFT))     &kp LG(LC(RIGHT))                                           ___       ___       ___       ___       ___
                                                                   ___             ___            ___       ___
                                                         &kp LC(B)       &kp LC(LA(TAB)) ___            ___       ___       ___
