@@ -81,7 +81,6 @@
         quick-tap-ms = <160>;
         global-quick-tap; // with typing streak
     };
-
     hm_shift_l: hm_shift_l {
         compatible = "zmk,behavior-hold-tap";
         label = "HOMEROW_MODS_FAST_LEFT";
@@ -89,11 +88,12 @@
         bindings = <&kp>, <&kp>;
 
         flavor = "balanced";
-        tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+        tapping-term-ms = <200>;
         quick_tap_ms = <175>;
-        // global-quick-tap-ms = <150>;         // requires PR #1387
-        hold-trigger-key-positions = <KEYS_R KEYS_T>;
-        // hold-trigger-on-release;             // requires PR #1423
+        //global-quick-tap;
+        //global-quick-tap-ms = <150>;         // requires PR #1387
+        hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+        //hold-trigger-on-release;             // requires PR #1423
     };
 
     hm_shift_r: hm_shift_r {
@@ -103,19 +103,56 @@
         bindings = <&kp>, <&kp>;
 
         flavor = "balanced";
-        tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+        tapping-term-ms = <200>;
         quick_tap_ms = <175>;
-        // global-quick-tap-ms = <150>;         // requires PR #1387
-        hold-trigger-key-positions = <KEYS_L KEYS_T>;
-        // hold-trigger-on-release;             // requires PR #1423
+        //global-quick-tap;
+        //global-quick-tap-ms = <150>;         // requires PR #1387
+        hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
+        //hold-trigger-on-release;             // requires PR #1423
     };
     };
     macros {
-        zellij_fullscreen: zellij_fullscreen {
-            label = "zellij_fullscreen";
+        term_fscreen: term_fscreen {
+            label = "term_fscreen";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp ESC>, <&kp LC(P)>, <&kp F>;
+            bindings = <&kp LC(LS)>, <&kp Z>;
+        };
+        term_vsplit: term_vsplit {
+            label = "term_vsplit";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(LALT))>, <&kp DQT>;
+        };
+        term_split: term_split {
+            label = "term_split";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(LALT))>, <&kp PRCNT>;
+        };
+        term_left: term_left {
+            label = "term_left";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS)>, <&kp LEFT>;
+        };
+        term_down: term_down {
+            label = "term_down";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS)>, <&kp DOWN>;
+        };
+        term_up: term_up {
+            label = "term_up";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS)>, <&kp UP>;
+        };
+        term_down: term_down {
+            label = "term_down";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS)>, <&kp DON>;
         };
     };
     keymap {
@@ -125,7 +162,7 @@
             bindings = <
                 &kp EQUAL &kp N1      &kp N2       &kp N3         &kp N4        &kp N5      &tog KEYPAD    &mo MOD &kp N6    &kp N7        &kp N8        &kp N9        &kp N0          &kp MINUS
                 &kp DEL   &kp Q       &kp W        &kp E          &kp R         &kp T       &to QWERTY     &tog MS &kp Y     &kp U         &kp I         &kp O         &kp P           &kp BSLH
-                &kp ESC   &homey_left LGUI A   &homey_left LALT S &homey_left LCTRL D   &hm_shift_l LSHFT F &kp G   &to COLEMAK    &none   &kp H     &hm_shift_r RSHFT J &homey_right RCTRL K  &homey_right RALT L  &homey_right RGUI SEMI        &kp SQT
+                &kp ESC   &homey_left LGUI A   &homey_left LALT S &homey_left LCTRL D   &hm_shift_l LSHFT F &kp G   &to COLEMAK    &none   &kp H     &hm_shift_r RSHFT J &homey_right RCTRL K  &homey_right RALT L  &homey_right RGUI SEMI &kp SQT
                 &sk LSHFT &kp Z       &kp X        &kp C          &kp V         &kp B                              &kp N     &kp M         &kp COMMA     &kp DOT       &kp FSLH        &sk RSHFT
                 &sl FN    &kp GRAVE   &kp CAPS     &kp LEFT       &kp RIGHT                                                  &kp DOWN      &kp UP        &kp LBKT      &kp RBKT        &sl FN
                                                                   &sl HYPER &kp LALT  &kp LGUI  &sl HYPER
@@ -203,8 +240,8 @@
             bindings = <
                 ___    ___                  ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
                 ___    ___                  ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
-                ___    ___                  ___     ___                  ___                ___       ___        ___       &kp LA(H) &kp LA(J) &kp LA(K) &kp LA(L) ___       ___
-                ___    &zellij_fullscreen   ___     &kp LC(LS(C))        &kp LC(LS(V))      ___                            ___       ___       ___       ___       ___       ___
+                ___    ___                  &term_split     &term_vsplit                  ___                ___       ___        ___       &term_left &term_down &term_up &term_right ___       ___
+                ___    &term_fscreen   ___     &kp LC(LS(C))        &kp LC(LS(V))      ___                            ___       ___       ___       ___       ___       ___
                 ___    ___                  ___     &kp LG(LC(LEFT))     &kp LG(LC(RIGHT))                                           ___       ___       ___       ___       ___
                                                                   ___             ___            ___       ___
                                                         &kp LC(B)       &kp LC(LA(TAB)) ___            ___       ___       ___
