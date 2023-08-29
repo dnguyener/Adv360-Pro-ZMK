@@ -111,18 +111,5 @@
         &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
       >;
     };
-
-    # hyper {
-        # bindings = <
-            # ___    ___                  ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
-            # ___    ___                  ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
-            # ___    ___                  &kp LC(LS(LA(PRCNT)))     &kp LC(LS(LA(DQT)))                  ___                ___       ___        ___       &kp LC(LS(LEFT)) &kp LC(LS(DOWN)) &kp LC(LS(UP)) &kp LC(LS(RIGHT)) ___       ___
-            # ___    &kp LC(LS(Z))   ___     &kp LC(LS(C))        &kp LC(LS(V))      ___                            ___       ___       ___       ___       ___       ___
-            # ___    ___                  ___     &kp LG(LC(LEFT))     &kp LG(LC(RIGHT))                                           ___       ___       ___       ___       ___
-                                                              # ___             ___            ___       ___
-                                                    # &kp LC(B)       &kp LC(LA(TAB)) ___            ___       ___       ___
-                                                                              # ___            ___
-        # >;
-    # };
   };
 };
