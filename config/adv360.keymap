@@ -5,6 +5,10 @@
 #include <dt-bindings/zmk/backlight.h>
 #define HYPER 4
 
+# define KEYS_L 0
+# define KEYS_R 7
+# define KEYS_T 28
+
 / {
     behaviors {
       #include "macros.dtsi"
