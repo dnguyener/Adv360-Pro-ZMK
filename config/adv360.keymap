@@ -7,6 +7,7 @@
 #define QWERTY 0
 #define FN 2
 #define MOD 3
+#define HYPER 4
 
 # define KEYS_L 0 1 2  3  4  5  6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 46 47 48 49 50 51 60 61 62 63 64
 # define KEYS_R 7 8 9 10 11 12 13 21 22 23 24 25 26 27 30 40 41 42 43 44 45 54 55 56 57 58 59 71 72 73 74 75
@@ -16,7 +17,7 @@
     behaviors {
       #include "macros.dtsi"
 
-        homey_left: home_row_mods_left_hand {
+        hl: home_row_mods_left_hand {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
             label = "HOME_ROW_MODS_LEFT_HAND";
@@ -29,7 +30,7 @@
             global-quick-tap; // with typing streak
         };
 
-        homey_right: home_row_mods_right_hand {
+        hr: home_row_mods_right_hand {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
             label = "HOME_ROW_MODS_RIGHT_HAND";
@@ -41,7 +42,7 @@
             quick-tap-ms = <160>;
             global-quick-tap; // with typing streak
         };
-        hm_shift_l: hm_shift_l {
+        hls: hm_shift_l {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_FAST_LEFT";
             #binding-cells = <2>;
@@ -56,7 +57,7 @@
             //hold-trigger-on-release;             // requires PR #1423
         };
 
-        hm_shift_r: hm_shift_r {
+        hrs: hm_shift_r {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_FAST_RIGHT";
             #binding-cells = <2>;
@@ -77,11 +78,11 @@
 
     default_layer {
       bindings = <
-        &kp EQUAL &kp N1      &kp N2       &kp N3         &kp N4        &kp N5      &tog QWERTY    &mo MOD                                  &kp N6    &kp N7        &kp N8        &kp N9        &kp N0          &kp MINUS
-        &kp DEL   &kp Q       &kp W        &kp E          &kp R         &kp T       &to QWERTY     &tog QWERTY                              &kp Y     &kp U         &kp I         &kp O         &kp P           &kp BSLH
-        &kp ESC   &homey_left LGUI A   &homey_left LALT S &homey_left LCTRL D   &hm_shift_l LSHFT F &kp G   &to QWERTY   &sl QWERTY &kp LALT  &kp LGUI  &sl QWERTY &none   &kp H     &hm_shift_r RSHFT J &homey_right RCTRL K  &homey_right RALT L  &homey_right RGUI SEMI &kp SQT
-        &sk LSHFT &kp Z       &kp X        &kp C          &kp V         &kp B                                                       &kp HOME  &kp PG_UP              &kp N                            &kp M         &kp COMMA     &kp DOT       &kp FSLH        &sk RSHFT
-        &sl FN    &kp GRAVE   &kp CAPS     &kp LEFT       &kp RIGHT              &kp BSPC  &kp TAB &kp END   &kp PG_DN &kp ENTER &kp SPACE &kp DOWN      &kp UP        &kp LBKT      &kp RBKT        &sl FN
+        &kp EQUAL &kp N1      &kp N2       &kp N3         &kp N4        &kp N5      &tog QWERTY    &mo MOD                                    &kp N6    &kp N7        &kp N8        &kp N9        &kp N0          &kp MINUS
+        &kp DEL   &kp Q       &kp W        &kp E          &kp R         &kp T       &to QWERTY     &tog QWERTY                                &kp Y     &kp U         &kp I         &kp O         &kp P           &kp BSLH
+        &kp ESC   &hl LGUI A  &hl LALT S   &hl LCTRL D    &hls LSHFT F  &kp G       &to QWERTY     &sl QWERTY &kp LALT  &kp LGUI  &sl QWERTY  &none     &kp H         &hlr RSHFT J  &hr RCTRL K   &hr RALT L      &hr RGUI SEMI   &kp SQT
+        &sk LSHFT &kp Z       &kp X        &kp C          &kp V         &kp B                                 &kp HOME  &kp PG_UP             &kp N     &kp M         &kp COMMA     &kp DOT       &kp FSLH        &sk RSHFT
+        &sl FN    &kp GRAVE   &kp CAPS     &kp LEFT       &kp RIGHT                       &kp BSPC  &kp TAB &kp END   &kp PG_DN &kp ENTER &kp SPACE     &kp DOWN      &kp UP        &kp LBKT      &kp RBKT        &sl FN
       >;
     };
     keypad {
@@ -109,6 +110,15 @@
         &none &none        &none        &none        &none        &none        &none                   &none &none &bt BT_CLR &none                      &rgb_ug RGB_MEFS_CMD 5 &none        &none        &none        &none &none &none
         &none &none        &none        &none        &none        &none                                      &none &none                                                        &none        &none        &none        &none &none &none
         &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
+      >;
+    };
+    hyper {
+      bindings = <
+        &none &none        &none        &none        &none        &none        &none                                                                     &none                  &none        &none        &none        &none &none &none
+        &none &none        &none        &none        &none        &none        &none                                                                     &none                  &none        &none        &none        &none &none &none
+        &none &none        &none        &none        &none        &none        &none                   &none &none &none &none                           &none                  &none        &none        &none        &none &none &none
+        &none &none        &none        &none        &none        &none                                      &none &none                                                        &none        &none        &none        &none &none &none
+        &none &none        &none        &none        &none                                       &none &none &none &none &none &none                                                         &none        &none        &none &none &none
       >;
     };
   };
