@@ -47,7 +47,6 @@
             label = "HOMEROW_MODS_FAST_LEFT";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
-
             flavor = "balanced";
             tapping-term-ms = <150>;
             quick_tap_ms = <175>;
@@ -116,7 +115,7 @@
       bindings = <
         &none &none        &none        &none            &none             &none        &none                                       &none        &none        &none        &none        &none &none &none
         &none &none        &kp LC(B)    &none            &none             &none        &none                                       &none        &none        &none        &none        &none &none &none
-        &none &none        &none        &none            &none             &none        &none        &none &none &none &none        &none        &none        &none        &none        &none &none &none
+        &none &kp LC(A)    &kp LC(S)    &LC(D)           &none             &none        &none        &none &none &none &none        &none        &none        &none        &none        &none &none &none
         &none &none        &none        &kp LC(LS(C))    &kp LC(LS(V))     &none                           &none &none                           &none        &none        &none        &none &none &none
         &none &none        &none        &kp LG(LC(LEFT)) &kp LG(LC(RIGHT))                     &none &none &none &none &none &none                            &none        &none        &none &none &none
       >;
