@@ -3,20 +3,66 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
+#define HYPER 4
 
 / {
     behaviors {
       #include "macros.dtsi"
 
-      hm: homerow_mods {
-          compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MODS";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          flavor = "tap-preferred";
-          bindings = <&kp>, <&kp>;
-      };
+        homey_left: home_row_mods_left_hand {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "balanced";
+            label = "HOME_ROW_MODS_LEFT_HAND";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            hold-trigger-on-release; // FIXME: needs ZMK 3.2
+            tapping-term-ms = <250>;
+            quick-tap-ms = <160>;
+            global-quick-tap; // with typing streak
+        };
+
+        homey_right: home_row_mods_right_hand {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "balanced";
+            label = "HOME_ROW_MODS_RIGHT_HAND";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            hold-trigger-on-release; // FIXME: needs ZMK 3.2
+            tapping-term-ms = <250>;
+            quick-tap-ms = <160>;
+            global-quick-tap; // with typing streak
+        };
+        hm_shift_l: hm_shift_l {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_FAST_LEFT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <150>;
+            quick_tap_ms = <175>;
+            //global-quick-tap;
+            //global-quick-tap-ms = <150>;         // requires PR #1387
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            //hold-trigger-on-release;             // requires PR #1423
+        };
+
+        hm_shift_r: hm_shift_r {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_FAST_RIGHT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <150>;
+            quick_tap_ms = <175>;
+            //global-quick-tap;
+            //global-quick-tap-ms = <150>;         // requires PR #1387
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            //hold-trigger-on-release;             // requires PR #1423
+        };
     };
 
   keymap {
@@ -24,11 +70,11 @@
 
     default_layer {
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &kp EQUAL &kp N1      &kp N2       &kp N3         &kp N4        &kp N5      &tog KEYPAD    &mo MOD                                  &kp N6    &kp N7        &kp N8        &kp N9        &kp N0          &kp MINUS
+        &kp DEL   &kp Q       &kp W        &kp E          &kp R         &kp T       &to QWERTY     &tog MS                                  &kp Y     &kp U         &kp I         &kp O         &kp P           &kp BSLH
+        &kp ESC   &homey_left LGUI A   &homey_left LALT S &homey_left LCTRL D   &hm_shift_l LSHFT F &kp G   &to COLEMAK   &sl HYPER &kp LALT  &kp LGUI  &sl HYPER &none   &kp H     &hm_shift_r RSHFT J &homey_right RCTRL K  &homey_right RALT L  &homey_right RGUI SEMI &kp SQT
+        &sk LSHFT &kp Z       &kp X        &kp C          &kp V         &kp B                                                       &kp HOME  &kp PG_UP              &kp N                            &kp M         &kp COMMA     &kp DOT       &kp FSLH        &sk RSHFT
+        &sl FN    &kp GRAVE   &kp CAPS     &kp LEFT       &kp RIGHT              &kp BSPC  &kp TAB &kp END   &kp PG_DN &kp ENTER &kp SPACE &kp DOWN      &kp UP        &kp LBKT      &kp RBKT        &sl FN
       >;
     };
     keypad {
@@ -57,6 +103,19 @@
         &none &none        &none        &none        &none        &none                                      &none &none                                                        &none        &none        &none        &none &none &none
         &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
       >;
+    };
+
+    hyper {
+        bindings = <
+            ___    ___                  ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
+            ___    ___                  ___     ___                  ___                ___       ___        ___       ___       ___       ___       ___       ___       ___
+            ___    ___                  &kp LC(LS(LA(PRCNT)))     &kp LC(LS(LA(DQT)))                  ___                ___       ___        ___       &kp LC(LS(LEFT)) &kp LC(LS(DOWN)) &kp LC(LS(UP)) &kp LC(LS(RIGHT)) ___       ___
+            ___    &kp LC(LS(Z))   ___     &kp LC(LS(C))        &kp LC(LS(V))      ___                            ___       ___       ___       ___       ___       ___
+            ___    ___                  ___     &kp LG(LC(LEFT))     &kp LG(LC(RIGHT))                                           ___       ___       ___       ___       ___
+                                                              ___             ___            ___       ___
+                                                    &kp LC(B)       &kp LC(LA(TAB)) ___            ___       ___       ___
+                                                                              ___            ___
+        >;
     };
   };
 };
